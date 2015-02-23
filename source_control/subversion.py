@@ -200,7 +200,7 @@ def main():
     os.environ['LANG'] = 'C'
     svn = Subversion(module, dest, repo, revision, username, password, svn_path)
 
-    if export or not os.path.exists(dest):
+    if export or not os.path.exists(dest) or not os.listdir(dest):
         before = None
         local_mods = False
         if module.check_mode:
